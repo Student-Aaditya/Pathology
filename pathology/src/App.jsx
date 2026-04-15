@@ -1,12 +1,12 @@
 import Login from "./pages/Auth/Login";
 import Register from "./pages/Patient/PatientRegister";
-import Home from "./pages/Home";
+import PathologyHome from "./pages/Home/PathologyHome";
+import DoctorHome from "./pages/Home/DoctorHome";
 import DashBoard from "./components/DashBoard";
-import { Routes, Route } from "react-router-dom";
 import SignUp from "./pages/Auth/SignUp";
 import PatientList from "./components/PatientList";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import BillPatient from "./pages/Bill/BillPatient";
-import {BrowserRouter} from 'react-router-dom'
 import BillReceipt from "./pages/Bill/BillReceipt";
 import SampleAccession from "./pages/Operation/SampleAccession";
 import OperationSample from "./pages/Operation/OperationTable";
@@ -19,16 +19,23 @@ import History from "./pages/Finance/History";
 import BillInvoice from "./pages/Bill/BillInvoice";
 import PaymentId from "./pages/Finance/PaymentId";
 import Cancel from "./pages/Cancel/Cancel";
+import PerformanceDashboard from "./pages/Dashbord/PerformanceDashboard";
+import SampleManagement from "./pages/Dashbord/SampleManagement";
+
 export default function App() {
   return (
-    <>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/home" element={<Home />}>
+
+        <Route path="/home" element={<PathologyHome />}>
           <Route index element={<DashBoard />} />
+          <Route
+            path="perferanceDashboard"
+            element={<Navigate to="/home/finance/PerformanceDashboard" replace />}
+          />
           <Route path="dashboard" element={<DashBoard />} />
           <Route path="patientRegister" element={<Register />} />
           <Route path="billPatient/:id" element={<BillPatient />} />
@@ -40,16 +47,29 @@ export default function App() {
           <Route path="bill-invoice/:id" element={<BillInvoice />} />
           <Route path="report" element={<Report />} />
           <Route path="cancel" element={<Cancel />} />
-          <Route path="finance">
-            <Route index element={<Finance />} />
-            <Route path="bill" element={<Bill />} />
-            <Route path="payment" element={<Payment />} />
-            <Route path="payment/:id" element={<PaymentId/>}/>
-            <Route path="history" element={<History />} />
-          </Route>
+          <Route path="finance" element={<Finance />} />
+          <Route path="finance/bill" element={<Bill />} />
+          <Route path="finance/payment" element={<Payment />} />
+          <Route path="finance/payment/:id" element={<PaymentId />} />
+          <Route path="finance/history" element={<History />} />
+          <Route
+            path="finance/PerformanceDashboard"
+            element={<PerformanceDashboard />}
+          />
+          <Route
+            path="finance/sample-management"
+            element={<SampleManagement />}
+          />
         </Route>
+
+
+        <Route path="/doctor/home" element={ <DoctorHome/>}>
+           
+        <Route path="performanceDashboard" element={<PerformanceDashboard/>}/>
+         <Route path="sampleManagement" element={<SampleManagement/>}/>
+
+          </Route>
       </Routes>
     </BrowserRouter>
-    </>
   );
 }

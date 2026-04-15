@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
-import SideBar from "../components/SideBar";
-import Dashboard from "../components/DashBoard";
+import SideBar from "../../components/SideBar/PathologySideBar";
+
 
 export default function Home() {
   return (
