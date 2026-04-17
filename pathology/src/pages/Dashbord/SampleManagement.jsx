@@ -56,10 +56,17 @@ export default function SampleManagement() {
      
 
       <div className="overflow-x-auto">
-        <div className="flex justify-center">
-        <h1 className="h-20 mt-10  mb-2 text-5xl ">Sample Management</h1>
-        </div>
-        <table className="min-w-full text-sm">
+      <div className="bg-white px-12 py-6 shadow-lg rounded-xl m-4 ml-7 border-b border-violet-500">
+        <h1 className="text-3xl font-bold text-gray-800">
+         Doctor  <span className="text-violet-500"> Sample Management</span>
+        </h1>
+        <p className="text-gray-500 text-sm mt-1">
+          Welcome back to Trego Doctor  Sample Management
+        </p>
+      </div> 
+
+      <div className="ml-7 mr-4">
+        <table className="min-w-full text-sm ">
           <thead>
             <tr className="text-left text-[18px] text-violet-500 border-b">
               <th className="py-2 px-3">#</th>
@@ -101,6 +108,7 @@ export default function SampleManagement() {
             ))}
           </tbody>
         </table>
+        </div>
       </div>
     </section>
   );
