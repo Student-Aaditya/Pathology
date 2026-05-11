@@ -1,6 +1,8 @@
 import Login from "./pages/Auth/Login";
 import Register from "./pages/Patient/PatientRegister";
-import Home from "./pages/Home";
+import Home from "./pages/Home/Home";
+import DoctorHome from "./pages/Home/DoctorHome";
+
 import DashBoard from "./components/DashBoard";
 import { Routes, Route } from "react-router-dom";
 import SignUp from "./pages/Auth/SignUp";
@@ -19,6 +21,9 @@ import History from "./pages/Finance/History";
 import BillInvoice from "./pages/Bill/BillInvoice";
 import PaymentId from "./pages/Finance/PaymentId";
 import Cancel from "./pages/Cancel/Cancel";
+
+import PerformanceDashboard from "./pages/Dashboard/PerformanceDashboard";
+import SampleManagement from "./pages/Dashboard/SampleManagement";
 export default function App() {
   return (
     <>
@@ -48,7 +53,11 @@ export default function App() {
             <Route path="history" element={<History />} />
           </Route>
         </Route>
-      </Routes>
+        <Route path="/doctor/home" element={<DoctorHome/>}>
+          <Route index element={<PerformanceDashboard/>}/>
+          <Route path="sample" element={<SampleManagement/>}/>
+        </Route>
+        </Routes>
     </BrowserRouter>
     </>
   );

@@ -45,12 +45,32 @@ export default function Login() {
       }}
     >
       <div className="w-full max-w-md bg-white/90 backdrop-blur-md rounded-2xl shadow-xl p-10">
-        <div className="text-left mb-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-2">Log in</h2>
-          <p className="text-gray-600">
-            Use your email and password, or continue with Google.
-          </p>
-        </div>
+        <div className="mb-6">
+  {/* Role Selection Buttons */}
+  <div className="flex gap-3 mb-6">
+    <button
+      type="button"
+      className="flex-1 py-3 rounded-xl border border-blue-600 bg-blue-600 text-white font-semibold hover:bg-blue-700 transition"
+    >
+      Pathology
+    </button>
+
+    <button
+      type="button"
+      className="flex-1 py-3 rounded-xl border border-gray-300 text-gray-700 font-semibold hover:bg-gray-100 transition"
+    >
+      Doctor
+    </button>
+  </div>
+
+  {/* Heading */}
+  <div className="text-left">
+    <h2 className="text-3xl font-bold text-gray-900 mb-2">Log in</h2>
+    <p className="text-gray-600">
+      Use your email and password, or continue with Google.
+    </p>
+  </div>
+</div>
 
         {/* ✅ Form connected */}
         <form className="space-y-5" onSubmit={handleSubmit}>
