@@ -1,7 +1,8 @@
 import Login from "./pages/Auth/Login";
 import Register from "./pages/Patient/PatientRegister";
-import PathologyHome from "./pages/Home/PathologyHome";
+import Home from "./pages/Home/Home";
 import DoctorHome from "./pages/Home/DoctorHome";
+
 import DashBoard from "./components/DashBoard";
 import SignUp from "./pages/Auth/SignUp";
 import PatientList from "./components/PatientList";
@@ -19,9 +20,9 @@ import History from "./pages/Finance/History";
 import BillInvoice from "./pages/Bill/BillInvoice";
 import PaymentId from "./pages/Finance/PaymentId";
 import Cancel from "./pages/Cancel/Cancel";
-import PerformanceDashboard from "./pages/Dashbord/PerformanceDashboard";
-import SampleManagement from "./pages/Dashbord/SampleManagement";
 
+import PerformanceDashboard from "./pages/Dashboard/PerformanceDashboard";
+import SampleManagement from "./pages/Dashboard/SampleManagement";
 export default function App() {
   return (
     <BrowserRouter>
@@ -61,15 +62,11 @@ export default function App() {
             element={<SampleManagement />}
           />
         </Route>
-
-
-        <Route path="/doctor/home" element={ <DoctorHome/>}>
-           
-        <Route path="performanceDashboard" element={<PerformanceDashboard/>}/>
-         <Route path="sampleManagement" element={<SampleManagement/>}/>
-
-          </Route>
-      </Routes>
+        <Route path="/doctor/home" element={<DoctorHome/>}>
+          <Route index element={<PerformanceDashboard/>}/>
+          <Route path="sample" element={<SampleManagement/>}/>
+        </Route>
+        </Routes>
     </BrowserRouter>
   );
 }

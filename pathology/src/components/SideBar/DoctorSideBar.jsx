@@ -49,13 +49,13 @@ export default function Sidebar() {
 
   const getActiveItem = () => {
     const path = location.pathname;
-    if (path === "/home" || path === "/home/dashboard") return "Dashboard";
+    if (path === "/doctor/home" || path === "/doctor/home/dashboard") return "Dashboard";
    
-    if (path.includes("/home/sample")) return "Sample";
-    if (path.includes("/home/Reporting")) return "Reporting";
-    if (path.includes("/home/print/pending")) return "Pending";
-    if (path.includes("/home/print/complete")) return "Complete";
-    if (path.includes("/home/finance/finance")) return "Finance";
+    if (path.includes("/doctor/home/sample")) return "Sample";
+    if (path.includes("/doctor/home/Reporting")) return "Reporting";
+    if (path.includes("/doctor/home/print/pending")) return "Pending";
+    if (path.includes("/doctor/home/print/complete")) return "Complete";
+    if (path.includes("/doctor/home/finance/finance")) return "Finance";
    
     return "Dashboard";
   };
@@ -84,18 +84,18 @@ export default function Sidebar() {
               onClick={() => {
                 if (item.subItems) {
                   setShowFinance(!showFinance);
-                } else if (item.name === "Reporting") {
-                  navigate("/home/Reporting");
                 } else if (item.name === "Dashboard") {
-                  navigate("/home/dashboard");
+                  navigate("/doctor/home");
                 } else if (item.name === "Sample") {
-                  navigate("/home/sample");
+                  navigate("/doctor/home/sample");
+                } else if (item.name === "Reporting") {
+                  navigate("/doctor/home/Reporting");
                 } else if (item.name === "Pending") {
-                  navigate("/home/print/pending");
+                  navigate("/doctor/home/print/pending");
                 } else if (item.name === "Finance") {
-                  navigate("/home/finance/finance");
+                  navigate("/doctor/home/finance/finance");
                 }  else if (item.name === "Complete") {
-                  navigate("/home/print/complete");
+                  navigate("/doctor/home/print/complete");
                 } 
               }}
               className={`flex items-center ${

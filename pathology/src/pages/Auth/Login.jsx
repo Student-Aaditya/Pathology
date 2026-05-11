@@ -4,7 +4,7 @@ import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 export default function Login() {
   const navigate = useNavigate();
-
+const [selectedRole, setSelectedRole] = useState("pathology");
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -45,12 +45,50 @@ export default function Login() {
       }}
     >
       <div className="w-full max-w-md bg-white/90 backdrop-blur-md rounded-2xl shadow-xl p-10">
-        <div className="text-left mb-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-2">Log in</h2>
-          <p className="text-gray-600">
-            Use your email and password, or continue with Google.
-          </p>
-        </div>
+        <div className="mb-6">
+  {/* Role Selection Buttons */}
+  <div className="flex gap-3 mb-6">
+    
+    {/* Pathology Button */}
+    <button
+      type="button"
+      onClick={() => setSelectedRole("pathology")}
+      className={`flex-1 py-3 rounded-xl font-semibold transition-all duration-300 border ${
+        selectedRole === "pathology"
+          ? "bg-blue-600 text-white border-blue-600 shadow-md scale-105"
+          : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100 cursor-pointer"
+      }`}
+    >
+      Pathology
+    </button>
+
+    {/* Doctor Button */}
+    <button
+      type="button"
+      onClick={() => setSelectedRole("doctor")}
+      className={`flex-1 py-3 rounded-xl font-semibold transition-all duration-300 border ${
+        selectedRole === "doctor"
+          ? "bg-green-600 text-white border-green-600 shadow-md scale-105"
+          : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100 cursor-pointer"
+      }`}
+    >
+      Doctor
+    </button>
+  </div>
+
+  {/* Heading */}
+  <div className="text-left">
+    <h2 className="text-3xl font-bold text-gray-900 mb-2">
+      {selectedRole === "pathology"
+        ? "Pathology Login"
+        : "Doctor Login"}
+    </h2>
+
+    <p className="text-gray-600">
+      Login as {selectedRole}.
+    </p>
+  </div>
+</div>
 
         {/* ✅ Form connected */}
         <form className="space-y-5" onSubmit={handleSubmit}>
