@@ -4,7 +4,7 @@ import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 export default function Login() {
   const navigate = useNavigate();
-
+const [selectedRole, setSelectedRole] = useState("pathology");
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -48,16 +48,29 @@ export default function Login() {
         <div className="mb-6">
   {/* Role Selection Buttons */}
   <div className="flex gap-3 mb-6">
+    
+    {/* Pathology Button */}
     <button
       type="button"
-      className="flex-1 py-3 rounded-xl border border-blue-600 bg-blue-600 text-white font-semibold hover:bg-blue-700 transition"
+      onClick={() => setSelectedRole("pathology")}
+      className={`flex-1 py-3 rounded-xl font-semibold transition-all duration-300 border ${
+        selectedRole === "pathology"
+          ? "bg-blue-600 text-white border-blue-600 shadow-md scale-105"
+          : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100 cursor-pointer"
+      }`}
     >
       Pathology
     </button>
 
+    {/* Doctor Button */}
     <button
       type="button"
-      className="flex-1 py-3 rounded-xl border border-gray-300 text-gray-700 font-semibold hover:bg-gray-100 transition"
+      onClick={() => setSelectedRole("doctor")}
+      className={`flex-1 py-3 rounded-xl font-semibold transition-all duration-300 border ${
+        selectedRole === "doctor"
+          ? "bg-green-600 text-white border-green-600 shadow-md scale-105"
+          : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100 cursor-pointer"
+      }`}
     >
       Doctor
     </button>
@@ -65,9 +78,14 @@ export default function Login() {
 
   {/* Heading */}
   <div className="text-left">
-    <h2 className="text-3xl font-bold text-gray-900 mb-2">Log in</h2>
+    <h2 className="text-3xl font-bold text-gray-900 mb-2">
+      {selectedRole === "pathology"
+        ? "Pathology Login"
+        : "Doctor Login"}
+    </h2>
+
     <p className="text-gray-600">
-      Use your email and password, or continue with Google.
+      Login as {selectedRole}.
     </p>
   </div>
 </div>
