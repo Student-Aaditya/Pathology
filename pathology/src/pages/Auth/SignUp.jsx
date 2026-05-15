@@ -33,7 +33,7 @@ export default function Register() {
         localStorage.setItem("token", res.data.token);
       }
       alert("Account created successfully");
-      navigate("/home");
+      navigate("/");
     } catch (err) {
       console.error(err.response?.data || err.message);
       alert(err.response?.data?.message || "Registration Failed");

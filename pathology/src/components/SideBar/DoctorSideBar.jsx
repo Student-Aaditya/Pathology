@@ -52,7 +52,7 @@ export default function Sidebar() {
     if (path === "/doctor/home" || path === "/doctor/home/dashboard") return "Dashboard";
    
     if (path.includes("/doctor/home/sample")) return "Sample";
-    if (path.includes("/doctor/home/Reporting")) return "Reporting";
+    if (path.includes("/doctor/home/reporting")) return "Reporting";
     if (path.includes("/doctor/home/print/pending")) return "Pending";
     if (path.includes("/doctor/home/print/complete")) return "Complete";
     if (path.includes("/doctor/home/finance/finance")) return "Finance";
@@ -89,7 +89,7 @@ export default function Sidebar() {
                 } else if (item.name === "Sample") {
                   navigate("/doctor/home/sample");
                 } else if (item.name === "Reporting") {
-                  navigate("/doctor/home/Reporting");
+                  navigate("/doctor/home/reporting");
                 } else if (item.name === "Pending") {
                   navigate("/doctor/home/print/pending");
                 } else if (item.name === "Finance") {

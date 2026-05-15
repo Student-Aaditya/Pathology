@@ -28,8 +28,14 @@ const [selectedRole, setSelectedRole] = useState("pathology");
       console.log("Login Success:", res.data);
 
       console.log(res.data.token);
+      if(selectedRole=="pathology"){
       localStorage.setItem("token", res.data.token);
       navigate("/home");
+      }
+      else{
+        localStorage.setItem("token", res.data.token);
+        navigate("/doctor/home");
+      }
     } catch (err) {
       console.error("Login Error:", err.response?.data || err.message);
       alert(err.response?.data?.message || "Login Failed ❌");

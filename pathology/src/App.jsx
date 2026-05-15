@@ -20,6 +20,7 @@ import History from "./pages/Finance/History";
 import BillInvoice from "./pages/Bill/BillInvoice";
 import PaymentId from "./pages/Finance/PaymentId";
 import Cancel from "./pages/Cancel/Cancel";
+import ReportingDashBoard from "./pages/Reporting/Reporting";
 
 import PerformanceDashboard from "./pages/Dashboard/PerformanceDashboard";
 import SampleManagement from "./pages/Dashboard/SampleManagement";
@@ -31,7 +32,7 @@ export default function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/register" element={<Register />} />
 
-        <Route path="/home" element={<PathologyHome />}>
+        <Route path="/home" element={<Home />}>
           <Route index element={<DashBoard />} />
           <Route
             path="perferanceDashboard"
@@ -65,6 +66,7 @@ export default function App() {
         <Route path="/doctor/home" element={<DoctorHome/>}>
           <Route index element={<PerformanceDashboard/>}/>
           <Route path="sample" element={<SampleManagement/>}/>
+          <Route path="reporting" element={<ReportingDashBoard/>}/>
         </Route>
         </Routes>
     </BrowserRouter>
